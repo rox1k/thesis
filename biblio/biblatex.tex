@@ -1,30 +1,30 @@
-%%% Реализация библиографии пакетами biblatex и biblatex-gost с использованием движка biber %%%
+%%% Ð ÐµÐ°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ñ Ð±Ð¸Ð±Ð»Ð¸Ð¾Ð³Ñ€Ð°Ñ„Ð¸Ð¸ Ð¿Ð°ÐºÐµÑ‚Ð°Ð¼Ð¸ biblatex Ð¸ biblatex-gost Ñ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð¸ÐµÐ¼ Ð´Ð²Ð¸Ð¶ÐºÐ° biber %%%
 
-\usepackage{csquotes} % biblatex рекомендует его подключать. Пакет для оформления сложных блоков цитирования.
-%%% Загрузка пакета с основными настройками %%%
+\usepackage{csquotes} % biblatex Ñ€ÐµÐºÐ¾Ð¼ÐµÐ½Ð´ÑƒÐµÑ‚ ÐµÐ³Ð¾ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡Ð°Ñ‚ÑŒ. ÐŸÐ°ÐºÐµÑ‚ Ð´Ð»Ñ Ð¾Ñ„Ð¾Ñ€Ð¼Ð»ÐµÐ½Ð¸Ñ ÑÐ»Ð¾Ð¶Ð½Ñ‹Ñ… Ð±Ð»Ð¾ÐºÐ¾Ð² Ñ†Ð¸Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ.
+%%% Ð—Ð°Ð³Ñ€ÑƒÐ·ÐºÐ° Ð¿Ð°ÐºÐµÑ‚Ð° Ñ Ð¾ÑÐ½Ð¾Ð²Ð½Ñ‹Ð¼Ð¸ Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ°Ð¼Ð¸ %%%
 \makeatletter
-\ifnumequal{\value{draft}}{0}{% Чистовик
+\ifnumequal{\value{draft}}{0}{% Ð§Ð¸ÑÑ‚Ð¾Ð²Ð¸Ðº
 \usepackage[%
-backend=biber,% движок
-bibencoding=utf8,% кодировка bib файла
-sorting=none,% настройка сортировки списка литературы
-style=gost-numeric,% стиль цитирования и библиографии (по ГОСТ)
-language=autobib,% получение языка из babel/polyglossia, default: autobib % если ставить autocite или auto, то цитаты в тексте с указанием страницы, получат указание страницы на языке оригинала
-autolang=other,% многоязычная библиография
-clearlang=true,% внутренний сброс поля language, если он совпадает с языком из babel/polyglossia
-defernumbers=true,% нумерация проставляется после двух компиляций, зато позволяет выцеплять библиографию по ключевым словам и нумеровать не из большего списка
-sortcites=true,% сортировать номера затекстовых ссылок при цитировании (если в квадратных скобках несколько ссылок, то отображаться будут отсортированно, а не абы как)
-doi=false,% Показывать или нет ссылки на DOI
-isbn=false,% Показывать или нет ISBN, ISSN, ISRN
+backend=biber,% Ð´Ð²Ð¸Ð¶Ð¾Ðº
+bibencoding=utf8,% ÐºÐ¾Ð´Ð¸Ñ€Ð¾Ð²ÐºÐ° bib Ñ„Ð°Ð¹Ð»Ð°
+sorting=none,% Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ° ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ¸ ÑÐ¿Ð¸ÑÐºÐ° Ð»Ð¸Ñ‚ÐµÑ€Ð°Ñ‚ÑƒÑ€Ñ‹
+style=gost-numeric,% ÑÑ‚Ð¸Ð»ÑŒ Ñ†Ð¸Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ Ð¸ Ð±Ð¸Ð±Ð»Ð¸Ð¾Ð³Ñ€Ð°Ñ„Ð¸Ð¸ (Ð¿Ð¾ Ð“ÐžÐ¡Ð¢)
+language=autobib,% Ð¿Ð¾Ð»ÑƒÑ‡ÐµÐ½Ð¸Ðµ ÑÐ·Ñ‹ÐºÐ° Ð¸Ð· babel/polyglossia, default: autobib % ÐµÑÐ»Ð¸ ÑÑ‚Ð°Ð²Ð¸Ñ‚ÑŒ autocite Ð¸Ð»Ð¸ auto, Ñ‚Ð¾ Ñ†Ð¸Ñ‚Ð°Ñ‚Ñ‹ Ð² Ñ‚ÐµÐºÑÑ‚Ðµ Ñ ÑƒÐºÐ°Ð·Ð°Ð½Ð¸ÐµÐ¼ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñ‹, Ð¿Ð¾Ð»ÑƒÑ‡Ð°Ñ‚ ÑƒÐºÐ°Ð·Ð°Ð½Ð¸Ðµ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñ‹ Ð½Ð° ÑÐ·Ñ‹ÐºÐµ Ð¾Ñ€Ð¸Ð³Ð¸Ð½Ð°Ð»Ð°
+autolang=other,% Ð¼Ð½Ð¾Ð³Ð¾ÑÐ·Ñ‹Ñ‡Ð½Ð°Ñ Ð±Ð¸Ð±Ð»Ð¸Ð¾Ð³Ñ€Ð°Ñ„Ð¸Ñ
+clearlang=true,% Ð²Ð½ÑƒÑ‚Ñ€ÐµÐ½Ð½Ð¸Ð¹ ÑÐ±Ñ€Ð¾Ñ Ð¿Ð¾Ð»Ñ language, ÐµÑÐ»Ð¸ Ð¾Ð½ ÑÐ¾Ð²Ð¿Ð°Ð´Ð°ÐµÑ‚ Ñ ÑÐ·Ñ‹ÐºÐ¾Ð¼ Ð¸Ð· babel/polyglossia
+defernumbers=true,% Ð½ÑƒÐ¼ÐµÑ€Ð°Ñ†Ð¸Ñ Ð¿Ñ€Ð¾ÑÑ‚Ð°Ð²Ð»ÑÐµÑ‚ÑÑ Ð¿Ð¾ÑÐ»Ðµ Ð´Ð²ÑƒÑ… ÐºÐ¾Ð¼Ð¿Ð¸Ð»ÑÑ†Ð¸Ð¹, Ð·Ð°Ñ‚Ð¾ Ð¿Ð¾Ð·Ð²Ð¾Ð»ÑÐµÑ‚ Ð²Ñ‹Ñ†ÐµÐ¿Ð»ÑÑ‚ÑŒ Ð±Ð¸Ð±Ð»Ð¸Ð¾Ð³Ñ€Ð°Ñ„Ð¸ÑŽ Ð¿Ð¾ ÐºÐ»ÑŽÑ‡ÐµÐ²Ñ‹Ð¼ ÑÐ»Ð¾Ð²Ð°Ð¼ Ð¸ Ð½ÑƒÐ¼ÐµÑ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð½Ðµ Ð¸Ð· Ð±Ð¾Ð»ÑŒÑˆÐµÐ³Ð¾ ÑÐ¿Ð¸ÑÐºÐ°
+sortcites=true,% ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð½Ð¾Ð¼ÐµÑ€Ð° Ð·Ð°Ñ‚ÐµÐºÑÑ‚Ð¾Ð²Ñ‹Ñ… ÑÑÑ‹Ð»Ð¾Ðº Ð¿Ñ€Ð¸ Ñ†Ð¸Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ð¸ (ÐµÑÐ»Ð¸ Ð² ÐºÐ²Ð°Ð´Ñ€Ð°Ñ‚Ð½Ñ‹Ñ… ÑÐºÐ¾Ð±ÐºÐ°Ñ… Ð½ÐµÑÐºÐ¾Ð»ÑŒÐºÐ¾ ÑÑÑ‹Ð»Ð¾Ðº, Ñ‚Ð¾ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶Ð°Ñ‚ÑŒÑÑ Ð±ÑƒÐ´ÑƒÑ‚ Ð¾Ñ‚ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ð¾, Ð° Ð½Ðµ Ð°Ð±Ñ‹ ÐºÐ°Ðº)
+doi=false,% ÐŸÐ¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ Ð¸Ð»Ð¸ Ð½ÐµÑ‚ ÑÑÑ‹Ð»ÐºÐ¸ Ð½Ð° DOI
+isbn=false,% ÐŸÐ¾ÐºÐ°Ð·Ñ‹Ð²Ð°Ñ‚ÑŒ Ð¸Ð»Ð¸ Ð½ÐµÑ‚ ISBN, ISSN, ISRN
 ]{biblatex}[2016/09/17]
 \ltx@iffilelater{biblatex-gost.def}{2017/05/03}%
 {\toggletrue{bbx:gostbibliography}%
 \renewcommand*{\revsdnamepunct}{\addcomma}}{}
-}{%Черновик
+}{%Ð§ÐµÑ€Ð½Ð¾Ð²Ð¸Ðº
 \usepackage[%
-backend=biber,% движок
-bibencoding=utf8,% кодировка bib файла
-sorting=none,% настройка сортировки списка литературы
+backend=biber,% Ð´Ð²Ð¸Ð¶Ð¾Ðº
+bibencoding=utf8,% ÐºÐ¾Ð´Ð¸Ñ€Ð¾Ð²ÐºÐ° bib Ñ„Ð°Ð¹Ð»Ð°
+sorting=none,% Ð½Ð°ÑÑ‚Ñ€Ð¾Ð¹ÐºÐ° ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ¸ ÑÐ¿Ð¸ÑÐºÐ° Ð»Ð¸Ñ‚ÐµÑ€Ð°Ñ‚ÑƒÑ€Ñ‹
 ]{biblatex}[2016/09/17]%
 }
 \makeatother
@@ -53,9 +53,9 @@ sorting=none,% настройка сортировки списка литера
     }
 }{}
 
-%%% Подключение файлов bib %%%
+%%% ÐŸÐ¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ Ñ„Ð°Ð¹Ð»Ð¾Ð² bib %%%
 \addbibresource[label=other]{biblio/othercites.bib}
-\addbibresource[label=vak]{biblio/authorpapersVAK.bib}
+\addbibresource[label=vak]{biblio/authorpapersvak.bib}
 \addbibresource[label=papers]{biblio/authorpapers.bib}
 \addbibresource[label=conf]{biblio/authorconferences.bib}
 
@@ -63,68 +63,68 @@ sorting=none,% настройка сортировки списка литера
 %http://tex.stackexchange.com/a/141831/79756
 %There is a way to automatically map the language field to the langid field. The following lines in the preamble should be enough to do that.
 %This command will copy the language field into the langid field and will then delete the contents of the language field. The language field will only be deleted if it was successfully copied into the langid field.
-\DeclareSourcemap{ %модификация bib файла перед тем, как им займётся biblatex 
+\DeclareSourcemap{ %Ð¼Ð¾Ð´Ð¸Ñ„Ð¸ÐºÐ°Ñ†Ð¸Ñ bib Ñ„Ð°Ð¹Ð»Ð° Ð¿ÐµÑ€ÐµÐ´ Ñ‚ÐµÐ¼, ÐºÐ°Ðº Ð¸Ð¼ Ð·Ð°Ð¹Ð¼Ñ‘Ñ‚ÑÑ biblatex
     \maps{
-        \map{% перекидываем значения полей language в поля langid, которыми пользуется biblatex
+        \map{% Ð¿ÐµÑ€ÐµÐºÐ¸Ð´Ñ‹Ð²Ð°ÐµÐ¼ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ Ð¿Ð¾Ð»ÐµÐ¹ language Ð² Ð¿Ð¾Ð»Ñ langid, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¼Ð¸ Ð¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚ÑÑ biblatex
             \step[fieldsource=language, fieldset=langid, origfieldval, final]
             \step[fieldset=language, null]
         }
-        \map[overwrite, refsection=0]{% стираем значения всех полей addendum
-            \perdatasource{biblio/authorpapersVAK.bib}
+        \map[overwrite, refsection=0]{% ÑÑ‚Ð¸Ñ€Ð°ÐµÐ¼ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ Ð²ÑÐµÑ… Ð¿Ð¾Ð»ÐµÐ¹ addendum
+            \perdatasource{biblio/authorpapersvak.bib}
             \perdatasource{biblio/authorpapers.bib}
             \perdatasource{biblio/authorconferences.bib}
             \step[fieldsource=addendum, final]
-            \step[fieldset=addendum, null] %чтобы избавиться от информации об объёме авторских статей, в отличие от автореферата
+            \step[fieldset=addendum, null] %Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð¸Ð·Ð±Ð°Ð²Ð¸Ñ‚ÑŒÑÑ Ð¾Ñ‚ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ð¸ Ð¾Ð± Ð¾Ð±ÑŠÑ‘Ð¼Ðµ Ð°Ð²Ñ‚Ð¾Ñ€ÑÐºÐ¸Ñ… ÑÑ‚Ð°Ñ‚ÐµÐ¹, Ð² Ð¾Ñ‚Ð»Ð¸Ñ‡Ð¸Ðµ Ð¾Ñ‚ Ð°Ð²Ñ‚Ð¾Ñ€ÐµÑ„ÐµÑ€Ð°Ñ‚Ð°
         }
-        \map{% перекидываем значения полей numpages в поля pagetotal, которыми пользуется biblatex
+        \map{% Ð¿ÐµÑ€ÐµÐºÐ¸Ð´Ñ‹Ð²Ð°ÐµÐ¼ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ Ð¿Ð¾Ð»ÐµÐ¹ numpages Ð² Ð¿Ð¾Ð»Ñ pagetotal, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¼Ð¸ Ð¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚ÑÑ biblatex
             \step[fieldsource=numpages, fieldset=pagetotal, origfieldval, final]
             \step[fieldset=pagestotal, null]
         }
-        \map{% если в поле medium написано "Электронный ресурс", то устанавливаем поле media, которым пользуется biblatex, в значение eresource.
+        \map{% ÐµÑÐ»Ð¸ Ð² Ð¿Ð¾Ð»Ðµ medium Ð½Ð°Ð¿Ð¸ÑÐ°Ð½Ð¾ "Ð­Ð»ÐµÐºÑ‚Ñ€Ð¾Ð½Ð½Ñ‹Ð¹ Ñ€ÐµÑÑƒÑ€Ñ", Ñ‚Ð¾ ÑƒÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÐµÐ¼ Ð¿Ð¾Ð»Ðµ media, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¼ Ð¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚ÑÑ biblatex, Ð² Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ eresource.
             \step[fieldsource=medium,
-            match=\regexp{Электронный\s+ресурс},
+            match=\regexp{Ð­Ð»ÐµÐºÑ‚Ñ€Ð¾Ð½Ð½Ñ‹Ð¹\s+Ñ€ÐµÑÑƒÑ€Ñ},
             final]
             \step[fieldset=media, fieldvalue=eresource]
         }
-        \map[overwrite]{% стираем значения всех полей issn
+        \map[overwrite]{% ÑÑ‚Ð¸Ñ€Ð°ÐµÐ¼ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ Ð²ÑÐµÑ… Ð¿Ð¾Ð»ÐµÐ¹ issn
             \step[fieldset=issn, null]
         }
-        \map[overwrite]{% стираем значения всех полей abstract, поскольку ими не пользуемся, а там бывают "неприятные" латеху символы
+        \map[overwrite]{% ÑÑ‚Ð¸Ñ€Ð°ÐµÐ¼ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ Ð²ÑÐµÑ… Ð¿Ð¾Ð»ÐµÐ¹ abstract, Ð¿Ð¾ÑÐºÐ¾Ð»ÑŒÐºÑƒ Ð¸Ð¼Ð¸ Ð½Ðµ Ð¿Ð¾Ð»ÑŒÐ·ÑƒÐµÐ¼ÑÑ, Ð° Ñ‚Ð°Ð¼ Ð±Ñ‹Ð²Ð°ÑŽÑ‚ "Ð½ÐµÐ¿Ñ€Ð¸ÑÑ‚Ð½Ñ‹Ðµ" Ð»Ð°Ñ‚ÐµÑ…Ñƒ ÑÐ¸Ð¼Ð²Ð¾Ð»Ñ‹
             \step[fieldsource=abstract]
             \step[fieldset=abstract,null]
         }
-        \map[overwrite]{ % переделка формата записи даты
+        \map[overwrite]{ % Ð¿ÐµÑ€ÐµÐ´ÐµÐ»ÐºÐ° Ñ„Ð¾Ñ€Ð¼Ð°Ñ‚Ð° Ð·Ð°Ð¿Ð¸ÑÐ¸ Ð´Ð°Ñ‚Ñ‹
             \step[fieldsource=urldate,
             match=\regexp{([0-9]{2})\.([0-9]{2})\.([0-9]{4})},
-            replace={$3-$2-$1$4}, % $4 вставлен исключительно ради нормальной работы программ подсветки синтаксиса, которые некорректно обрабатывают $ в таких конструкциях
+            replace={$3-$2-$1$4}, % $4 Ð²ÑÑ‚Ð°Ð²Ð»ÐµÐ½ Ð¸ÑÐºÐ»ÑŽÑ‡Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ Ñ€Ð°Ð´Ð¸ Ð½Ð¾Ñ€Ð¼Ð°Ð»ÑŒÐ½Ð¾Ð¹ Ñ€Ð°Ð±Ð¾Ñ‚Ñ‹ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼ Ð¿Ð¾Ð´ÑÐ²ÐµÑ‚ÐºÐ¸ ÑÐ¸Ð½Ñ‚Ð°ÐºÑÐ¸ÑÐ°, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð½ÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ð¾ Ð¾Ð±Ñ€Ð°Ð±Ð°Ñ‚Ñ‹Ð²Ð°ÑŽÑ‚ $ Ð² Ñ‚Ð°ÐºÐ¸Ñ… ÐºÐ¾Ð½ÑÑ‚Ñ€ÑƒÐºÑ†Ð¸ÑÑ…
             final]
         }
-        \map[overwrite]{ % добавляем ключевые слова, чтобы различать источники
+        \map[overwrite]{ % Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ ÐºÐ»ÑŽÑ‡ÐµÐ²Ñ‹Ðµ ÑÐ»Ð¾Ð²Ð°, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ñ€Ð°Ð·Ð»Ð¸Ñ‡Ð°Ñ‚ÑŒ Ð¸ÑÑ‚Ð¾Ñ‡Ð½Ð¸ÐºÐ¸
             \perdatasource{biblio/othercites.bib}
             \step[fieldset=keywords, fieldvalue={biblioother,bibliofull}]
         }
-        \map[overwrite]{ % добавляем ключевые слова, чтобы различать источники
-            \perdatasource{biblio/authorpapersVAK.bib}
+        \map[overwrite]{ % Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ ÐºÐ»ÑŽÑ‡ÐµÐ²Ñ‹Ðµ ÑÐ»Ð¾Ð²Ð°, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ñ€Ð°Ð·Ð»Ð¸Ñ‡Ð°Ñ‚ÑŒ Ð¸ÑÑ‚Ð¾Ñ‡Ð½Ð¸ÐºÐ¸
+            \perdatasource{biblio/authorpapersvak.bib}
             \step[fieldset=keywords, fieldvalue={biblioauthorvak,biblioauthor,bibliofull}]
         }
-        \map[overwrite]{ % добавляем ключевые слова, чтобы различать источники
+        \map[overwrite]{ % Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ ÐºÐ»ÑŽÑ‡ÐµÐ²Ñ‹Ðµ ÑÐ»Ð¾Ð²Ð°, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ñ€Ð°Ð·Ð»Ð¸Ñ‡Ð°Ñ‚ÑŒ Ð¸ÑÑ‚Ð¾Ñ‡Ð½Ð¸ÐºÐ¸
             \perdatasource{biblio/authorpapers.bib}
             \step[fieldset=keywords, fieldvalue={biblioauthornotvak,biblioauthor,bibliofull}]
         }
-        \map[overwrite]{ % добавляем ключевые слова, чтобы различать источники
+        \map[overwrite]{ % Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ ÐºÐ»ÑŽÑ‡ÐµÐ²Ñ‹Ðµ ÑÐ»Ð¾Ð²Ð°, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ñ€Ð°Ð·Ð»Ð¸Ñ‡Ð°Ñ‚ÑŒ Ð¸ÑÑ‚Ð¾Ñ‡Ð½Ð¸ÐºÐ¸
             \perdatasource{biblio/authorconferences.bib}
             \step[fieldset=keywords, fieldvalue={biblioauthorconf,biblioauthor,bibliofull}]
         }
-%        \map[overwrite]{% стираем значения всех полей series
+%        \map[overwrite]{% ÑÑ‚Ð¸Ñ€Ð°ÐµÐ¼ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ Ð²ÑÐµÑ… Ð¿Ð¾Ð»ÐµÐ¹ series
 %            \step[fieldset=series, null]
 %        }
-        \map[overwrite]{% перекидываем значения полей howpublished в поля organization для типа online
+        \map[overwrite]{% Ð¿ÐµÑ€ÐµÐºÐ¸Ð´Ñ‹Ð²Ð°ÐµÐ¼ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ Ð¿Ð¾Ð»ÐµÐ¹ howpublished Ð² Ð¿Ð¾Ð»Ñ organization Ð´Ð»Ñ Ñ‚Ð¸Ð¿Ð° online
             \step[typesource=online, typetarget=online, final]
             \step[fieldsource=howpublished, fieldset=organization, origfieldval]
             \step[fieldset=howpublished, null]
         }
-        % Так отключаем [Электронный ресурс]
-%        \map[overwrite]{% стираем значения всех полей media=eresource
+        % Ð¢Ð°Ðº Ð¾Ñ‚ÐºÐ»ÑŽÑ‡Ð°ÐµÐ¼ [Ð­Ð»ÐµÐºÑ‚Ñ€Ð¾Ð½Ð½Ñ‹Ð¹ Ñ€ÐµÑÑƒÑ€Ñ]
+%        \map[overwrite]{% ÑÑ‚Ð¸Ñ€Ð°ÐµÐ¼ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ Ð²ÑÐµÑ… Ð¿Ð¾Ð»ÐµÐ¹ media=eresource
 %            \step[fieldsource=media,
 %            match={eresource},
 %            final]
@@ -133,9 +133,9 @@ sorting=none,% настройка сортировки списка литера
     }
 }
 
-%%% Убираем неразрывные пробелы перед двоеточием и точкой с запятой %%%
+%%% Ð£Ð±Ð¸Ñ€Ð°ÐµÐ¼ Ð½ÐµÑ€Ð°Ð·Ñ€Ñ‹Ð²Ð½Ñ‹Ðµ Ð¿Ñ€Ð¾Ð±ÐµÐ»Ñ‹ Ð¿ÐµÑ€ÐµÐ´ Ð´Ð²Ð¾ÐµÑ‚Ð¾Ñ‡Ð¸ÐµÐ¼ Ð¸ Ñ‚Ð¾Ñ‡ÐºÐ¾Ð¹ Ñ Ð·Ð°Ð¿ÑÑ‚Ð¾Ð¹ %%%
 %\makeatletter
-%\ifnumequal{\value{draft}}{0}{% Чистовик
+%\ifnumequal{\value{draft}}{0}{% Ð§Ð¸ÑÑ‚Ð¾Ð²Ð¸Ðº
 %    \renewcommand*{\addcolondelim}{%
 %      \begingroup%
 %      \def\abx@colon{%
@@ -154,8 +154,8 @@ sorting=none,% настройка сортировки списка литера
 %}{}
 %\makeatother
 
-%%% Правка записей типа thesis, чтобы дважды не писался автор
-%\ifnumequal{\value{draft}}{0}{% Чистовик
+%%% ÐŸÑ€Ð°Ð²ÐºÐ° Ð·Ð°Ð¿Ð¸ÑÐµÐ¹ Ñ‚Ð¸Ð¿Ð° thesis, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð´Ð²Ð°Ð¶Ð´Ñ‹ Ð½Ðµ Ð¿Ð¸ÑÐ°Ð»ÑÑ Ð°Ð²Ñ‚Ð¾Ñ€
+%\ifnumequal{\value{draft}}{0}{% Ð§Ð¸ÑÑ‚Ð¾Ð²Ð¸Ðº
 %\DeclareBibliographyDriver{thesis}{%
 %  \usebibmacro{bibindex}%
 %  \usebibmacro{begentry}%
@@ -165,7 +165,7 @@ sorting=none,% настройка сортировки списка литера
 %  \setunit*{\labelnamepunct}%
 %  \usebibmacro{thesistitle}%
 %  \setunit{\respdelim}%
-%  %\printnames[last-first:full]{author}%Вот эту строчку нужно убрать, чтобы автор диссертации не дублировался
+%  %\printnames[last-first:full]{author}%Ð’Ð¾Ñ‚ ÑÑ‚Ñƒ ÑÑ‚Ñ€Ð¾Ñ‡ÐºÑƒ Ð½ÑƒÐ¶Ð½Ð¾ ÑƒÐ±Ñ€Ð°Ñ‚ÑŒ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ Ð°Ð²Ñ‚Ð¾Ñ€ Ð´Ð¸ÑÑÐµÑ€Ñ‚Ð°Ñ†Ð¸Ð¸ Ð½Ðµ Ð´ÑƒÐ±Ð»Ð¸Ñ€Ð¾Ð²Ð°Ð»ÑÑ
 %  \newunit\newblock
 %  \printlist[semicolondelim]{specdata}%
 %  \newunit
@@ -186,63 +186,63 @@ sorting=none,% настройка сортировки списка литера
 %  \usebibmacro{finentry}}
 %}{}
 
-%\newbibmacro{string+doi}[1]{% новая макрокоманда на простановку ссылки на doi
+%\newbibmacro{string+doi}[1]{% Ð½Ð¾Ð²Ð°Ñ Ð¼Ð°ÐºÑ€Ð¾ÐºÐ¾Ð¼Ð°Ð½Ð´Ð° Ð½Ð° Ð¿Ñ€Ð¾ÑÑ‚Ð°Ð½Ð¾Ð²ÐºÑƒ ÑÑÑ‹Ð»ÐºÐ¸ Ð½Ð° doi
 %    \iffieldundef{doi}{#1}{\href{http://dx.doi.org/\thefield{doi}}{#1}}}
 
-%\ifnumequal{\value{draft}}{0}{% Чистовик
-%\renewcommand*{\mkgostheading}[1]{\usebibmacro{string+doi}{#1}} % ссылка на doi с авторов. стоящих впереди записи
-%\renewcommand*{\mkgostheading}[1]{#1} % только лишь убираем курсив с авторов
+%\ifnumequal{\value{draft}}{0}{% Ð§Ð¸ÑÑ‚Ð¾Ð²Ð¸Ðº
+%\renewcommand*{\mkgostheading}[1]{\usebibmacro{string+doi}{#1}} % ÑÑÑ‹Ð»ÐºÐ° Ð½Ð° doi Ñ Ð°Ð²Ñ‚Ð¾Ñ€Ð¾Ð². ÑÑ‚Ð¾ÑÑ‰Ð¸Ñ… Ð²Ð¿ÐµÑ€ÐµÐ´Ð¸ Ð·Ð°Ð¿Ð¸ÑÐ¸
+%\renewcommand*{\mkgostheading}[1]{#1} % Ñ‚Ð¾Ð»ÑŒÐºÐ¾ Ð»Ð¸ÑˆÑŒ ÑƒÐ±Ð¸Ñ€Ð°ÐµÐ¼ ÐºÑƒÑ€ÑÐ¸Ð² Ñ Ð°Ð²Ñ‚Ð¾Ñ€Ð¾Ð²
 %}{}
-%\DeclareFieldFormat{title}{\usebibmacro{string+doi}{#1}} % ссылка на doi с названия работы
-%\DeclareFieldFormat{journaltitle}{\usebibmacro{string+doi}{#1}} % ссылка на doi с названия журнала
-%%% Тире как разделитель в библиографии традиционной руской длины:
+%\DeclareFieldFormat{title}{\usebibmacro{string+doi}{#1}} % ÑÑÑ‹Ð»ÐºÐ° Ð½Ð° doi Ñ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ñ Ñ€Ð°Ð±Ð¾Ñ‚Ñ‹
+%\DeclareFieldFormat{journaltitle}{\usebibmacro{string+doi}{#1}} % ÑÑÑ‹Ð»ÐºÐ° Ð½Ð° doi Ñ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ñ Ð¶ÑƒÑ€Ð½Ð°Ð»Ð°
+%%% Ð¢Ð¸Ñ€Ðµ ÐºÐ°Ðº Ñ€Ð°Ð·Ð´ÐµÐ»Ð¸Ñ‚ÐµÐ»ÑŒ Ð² Ð±Ð¸Ð±Ð»Ð¸Ð¾Ð³Ñ€Ð°Ñ„Ð¸Ð¸ Ñ‚Ñ€Ð°Ð´Ð¸Ñ†Ð¸Ð¾Ð½Ð½Ð¾Ð¹ Ñ€ÑƒÑÐºÐ¾Ð¹ Ð´Ð»Ð¸Ð½Ñ‹:
 \renewcommand*{\newblockpunct}{\addperiod\addnbspace\cyrdash\space\bibsentence}
-%%% Убрать тире из разделителей элементов в библиографии:
+%%% Ð£Ð±Ñ€Ð°Ñ‚ÑŒ Ñ‚Ð¸Ñ€Ðµ Ð¸Ð· Ñ€Ð°Ð·Ð´ÐµÐ»Ð¸Ñ‚ÐµÐ»ÐµÐ¹ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð² Ð±Ð¸Ð±Ð»Ð¸Ð¾Ð³Ñ€Ð°Ñ„Ð¸Ð¸:
 %\renewcommand*{\newblockpunct}{%
 %    \addperiod\space\bibsentence}%block punct.,\bibsentence is for vol,etc.
 
-%%% Возвращаем запись «Режим доступа» %%%
+%%% Ð’Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÐ¼ Ð·Ð°Ð¿Ð¸ÑÑŒ Â«Ð ÐµÐ¶Ð¸Ð¼ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð°Â» %%%
 %\DefineBibliographyStrings{english}{%
 %    urlfrom = {Mode of access}
 %}
 %\DeclareFieldFormat{url}{\bibstring{urlfrom}\addcolon\space\url{#1}}
 
-%%% В списке литературы обозначение одной буквой диапазона страниц англоязычного источника %%%
+%%% Ð’ ÑÐ¿Ð¸ÑÐºÐµ Ð»Ð¸Ñ‚ÐµÑ€Ð°Ñ‚ÑƒÑ€Ñ‹ Ð¾Ð±Ð¾Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¾Ð´Ð½Ð¾Ð¹ Ð±ÑƒÐºÐ²Ð¾Ð¹ Ð´Ð¸Ð°Ð¿Ð°Ð·Ð¾Ð½Ð° ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ† Ð°Ð½Ð³Ð»Ð¾ÑÐ·Ñ‹Ñ‡Ð½Ð¾Ð³Ð¾ Ð¸ÑÑ‚Ð¾Ñ‡Ð½Ð¸ÐºÐ° %%%
 \DefineBibliographyStrings{english}{%
-    pages = {p\adddot} %заглавность буквы затем по месту определяется работой самого biblatex
+    pages = {p\adddot} %Ð·Ð°Ð³Ð»Ð°Ð²Ð½Ð¾ÑÑ‚ÑŒ Ð±ÑƒÐºÐ²Ñ‹ Ð·Ð°Ñ‚ÐµÐ¼ Ð¿Ð¾ Ð¼ÐµÑÑ‚Ñƒ Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÑÐµÑ‚ÑÑ Ñ€Ð°Ð±Ð¾Ñ‚Ð¾Ð¹ ÑÐ°Ð¼Ð¾Ð³Ð¾ biblatex
 }
 
-%%% В ссылке на источник в основном тексте с указанием конкретной страницы обозначение одной большой буквой %%%
+%%% Ð’ ÑÑÑ‹Ð»ÐºÐµ Ð½Ð° Ð¸ÑÑ‚Ð¾Ñ‡Ð½Ð¸Ðº Ð² Ð¾ÑÐ½Ð¾Ð²Ð½Ð¾Ð¼ Ñ‚ÐµÐºÑÑ‚Ðµ Ñ ÑƒÐºÐ°Ð·Ð°Ð½Ð¸ÐµÐ¼ ÐºÐ¾Ð½ÐºÑ€ÐµÑ‚Ð½Ð¾Ð¹ ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñ‹ Ð¾Ð±Ð¾Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¾Ð´Ð½Ð¾Ð¹ Ð±Ð¾Ð»ÑŒÑˆÐ¾Ð¹ Ð±ÑƒÐºÐ²Ð¾Ð¹ %%%
 %\DefineBibliographyStrings{russian}{%
 %    page = {C\adddot}
 %}
 
-%%% Исправление длины тире в диапазонах %%%
-% \cyrdash --- тире «русской» длины, \textendash --- en-dash
+%%% Ð˜ÑÐ¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ð´Ð»Ð¸Ð½Ñ‹ Ñ‚Ð¸Ñ€Ðµ Ð² Ð´Ð¸Ð°Ð¿Ð°Ð·Ð¾Ð½Ð°Ñ… %%%
+% \cyrdash --- Ñ‚Ð¸Ñ€Ðµ Â«Ñ€ÑƒÑÑÐºÐ¾Ð¹Â» Ð´Ð»Ð¸Ð½Ñ‹, \textendash --- en-dash
 \DefineBibliographyExtras{russian}{%
   \protected\def\bibrangedash{%
     \cyrdash\penalty\value{abbrvpenalty}}% almost unbreakable dash
-  \protected\def\bibdaterangesep{\bibrangedash}%тире для дат
+  \protected\def\bibdaterangesep{\bibrangedash}%Ñ‚Ð¸Ñ€Ðµ Ð´Ð»Ñ Ð´Ð°Ñ‚
 }
 \DefineBibliographyExtras{english}{%
   \protected\def\bibrangedash{%
     \cyrdash\penalty\value{abbrvpenalty}}% almost unbreakable dash
-  \protected\def\bibdaterangesep{\bibrangedash}%тире для дат
+  \protected\def\bibdaterangesep{\bibrangedash}%Ñ‚Ð¸Ñ€Ðµ Ð´Ð»Ñ Ð´Ð°Ñ‚
 }
 
 %Set higher penalty for breaking in number, dates and pages ranges
 \setcounter{abbrvpenalty}{10000} % default is \hyphenpenalty which is 12
 
 %Set higher penalty for breaking in names
-\setcounter{highnamepenalty}{10000} % If you prefer the traditional BibTeX behavior (no linebreaks at highnamepenalty breakpoints), set it to ‘infinite’ (10 000 or higher).
+\setcounter{highnamepenalty}{10000} % If you prefer the traditional BibTeX behavior (no linebreaks at highnamepenalty breakpoints), set it to â€˜infiniteâ€™ (10 000 or higher).
 \setcounter{lownamepenalty}{10000}
 
 %%% Set low penalties for breaks at uppercase letters and lowercase letters
-%\setcounter{biburllcpenalty}{500} %управляет разрывами ссылок после маленьких букв RTFM biburllcpenalty
-%\setcounter{biburlucpenalty}{3000} %управляет разрывами ссылок после больших букв, RTFM biburlucpenalty
+%\setcounter{biburllcpenalty}{500} %ÑƒÐ¿Ñ€Ð°Ð²Ð»ÑÐµÑ‚ Ñ€Ð°Ð·Ñ€Ñ‹Ð²Ð°Ð¼Ð¸ ÑÑÑ‹Ð»Ð¾Ðº Ð¿Ð¾ÑÐ»Ðµ Ð¼Ð°Ð»ÐµÐ½ÑŒÐºÐ¸Ñ… Ð±ÑƒÐºÐ² RTFM biburllcpenalty
+%\setcounter{biburlucpenalty}{3000} %ÑƒÐ¿Ñ€Ð°Ð²Ð»ÑÐµÑ‚ Ñ€Ð°Ð·Ñ€Ñ‹Ð²Ð°Ð¼Ð¸ ÑÑÑ‹Ð»Ð¾Ðº Ð¿Ð¾ÑÐ»Ðµ Ð±Ð¾Ð»ÑŒÑˆÐ¸Ñ… Ð±ÑƒÐºÐ², RTFM biburlucpenalty
 
-%%% Список литературы с красной строки (без висячего отступа) %%%
-%\defbibenvironment{bibliography} % переопределяем окружение библиографии из gost-numeric.bbx пакета biblatex-gost
+%%% Ð¡Ð¿Ð¸ÑÐ¾Ðº Ð»Ð¸Ñ‚ÐµÑ€Ð°Ñ‚ÑƒÑ€Ñ‹ Ñ ÐºÑ€Ð°ÑÐ½Ð¾Ð¹ ÑÑ‚Ñ€Ð¾ÐºÐ¸ (Ð±ÐµÐ· Ð²Ð¸ÑÑÑ‡ÐµÐ³Ð¾ Ð¾Ñ‚ÑÑ‚ÑƒÐ¿Ð°) %%%
+%\defbibenvironment{bibliography} % Ð¿ÐµÑ€ÐµÐ¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÑÐµÐ¼ Ð¾ÐºÑ€ÑƒÐ¶ÐµÐ½Ð¸Ðµ Ð±Ð¸Ð±Ð»Ð¸Ð¾Ð³Ñ€Ð°Ñ„Ð¸Ð¸ Ð¸Ð· gost-numeric.bbx Ð¿Ð°ÐºÐµÑ‚Ð° biblatex-gost
 %  {\list
 %     {\printtext[labelnumberwidth]{%
 %	\printfield{prefixnumber}%
@@ -250,11 +250,11 @@ sorting=none,% настройка сортировки списка литера
 %     {%
 %      \setlength{\labelwidth}{\labelnumberwidth}%
 %      \setlength{\leftmargin}{0pt}% default is \labelwidth
-%      \setlength{\labelsep}{\widthof{\ }}% Управляет длиной отступа после точки % default is \biblabelsep
-%      \setlength{\itemsep}{\bibitemsep}% Управление дополнительным вертикальным разрывом между записями. \bibitemsep по умолчанию соответствует \itemsep списков в документе.
-%      \setlength{\itemindent}{\bibhang}% Пользуемся тем, что \bibhang по умолчанию принимает значение \parindent (абзацного отступа), который переназначен в styles.tex
-%      \addtolength{\itemindent}{\labelwidth}% Сдвигаем правее на величину номера с точкой
-%      \addtolength{\itemindent}{\labelsep}% Сдвигаем ещё правее на отступ после точки
+%      \setlength{\labelsep}{\widthof{\ }}% Ð£Ð¿Ñ€Ð°Ð²Ð»ÑÐµÑ‚ Ð´Ð»Ð¸Ð½Ð¾Ð¹ Ð¾Ñ‚ÑÑ‚ÑƒÐ¿Ð° Ð¿Ð¾ÑÐ»Ðµ Ñ‚Ð¾Ñ‡ÐºÐ¸ % default is \biblabelsep
+%      \setlength{\itemsep}{\bibitemsep}% Ð£Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ð´Ð¾Ð¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ð¼ Ð²ÐµÑ€Ñ‚Ð¸ÐºÐ°Ð»ÑŒÐ½Ñ‹Ð¼ Ñ€Ð°Ð·Ñ€Ñ‹Ð²Ð¾Ð¼ Ð¼ÐµÐ¶Ð´Ñƒ Ð·Ð°Ð¿Ð¸ÑÑÐ¼Ð¸. \bibitemsep Ð¿Ð¾ ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽ ÑÐ¾Ð¾Ñ‚Ð²ÐµÑ‚ÑÑ‚Ð²ÑƒÐµÑ‚ \itemsep ÑÐ¿Ð¸ÑÐºÐ¾Ð² Ð² Ð´Ð¾ÐºÑƒÐ¼ÐµÐ½Ñ‚Ðµ.
+%      \setlength{\itemindent}{\bibhang}% ÐŸÐ¾Ð»ÑŒÐ·ÑƒÐµÐ¼ÑÑ Ñ‚ÐµÐ¼, Ñ‡Ñ‚Ð¾ \bibhang Ð¿Ð¾ ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽ Ð¿Ñ€Ð¸Ð½Ð¸Ð¼Ð°ÐµÑ‚ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ \parindent (Ð°Ð±Ð·Ð°Ñ†Ð½Ð¾Ð³Ð¾ Ð¾Ñ‚ÑÑ‚ÑƒÐ¿Ð°), ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¹ Ð¿ÐµÑ€ÐµÐ½Ð°Ð·Ð½Ð°Ñ‡ÐµÐ½ Ð² styles.tex
+%      \addtolength{\itemindent}{\labelwidth}% Ð¡Ð´Ð²Ð¸Ð³Ð°ÐµÐ¼ Ð¿Ñ€Ð°Ð²ÐµÐµ Ð½Ð° Ð²ÐµÐ»Ð¸Ñ‡Ð¸Ð½Ñƒ Ð½Ð¾Ð¼ÐµÑ€Ð° Ñ Ñ‚Ð¾Ñ‡ÐºÐ¾Ð¹
+%      \addtolength{\itemindent}{\labelsep}% Ð¡Ð´Ð²Ð¸Ð³Ð°ÐµÐ¼ ÐµÑ‰Ñ‘ Ð¿Ñ€Ð°Ð²ÐµÐµ Ð½Ð° Ð¾Ñ‚ÑÑ‚ÑƒÐ¿ Ð¿Ð¾ÑÐ»Ðµ Ñ‚Ð¾Ñ‡ÐºÐ¸
 %      \setlength{\parsep}{\bibparsep}%
 %     }%
 %      \renewcommand*{\makelabel}[1]{\hss##1}%
@@ -262,7 +262,7 @@ sorting=none,% настройка сортировки списка литера
 %  {\endlist}
 %  {\item}
 
-%% Счётчик использованных ссылок на литературу, обрабатывающий с учётом неоднократных ссылок
+%% Ð¡Ñ‡Ñ‘Ñ‚Ñ‡Ð¸Ðº Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ð½Ð½Ñ‹Ñ… ÑÑÑ‹Ð»Ð¾Ðº Ð½Ð° Ð»Ð¸Ñ‚ÐµÑ€Ð°Ñ‚ÑƒÑ€Ñƒ, Ð¾Ð±Ñ€Ð°Ð±Ð°Ñ‚Ñ‹Ð²Ð°ÑŽÑ‰Ð¸Ð¹ Ñ ÑƒÑ‡Ñ‘Ñ‚Ð¾Ð¼ Ð½ÐµÐ¾Ð´Ð½Ð¾ÐºÑ€Ð°Ñ‚Ð½Ñ‹Ñ… ÑÑÑ‹Ð»Ð¾Ðº
 %http://tex.stackexchange.com/a/66851/79756
 %\newcounter{citenum}
 \newtotcounter{citenum}
@@ -271,7 +271,7 @@ sorting=none,% настройка сортировки списка литера
   {\setcounter{citenum}{0}%
   \renewcommand{\blx@driver}[1]{}%
   } %what is doing at the beginining of bibliography. In your case it's : a. Reset counter b. Say to print nothing when a entry is tested.
-  {} %Здесь то, что будет выводиться командой \printbibliography. \thecitenum сюда писать не надо
+  {} %Ð—Ð´ÐµÑÑŒ Ñ‚Ð¾, Ñ‡Ñ‚Ð¾ Ð±ÑƒÐ´ÐµÑ‚ Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒÑÑ ÐºÐ¾Ð¼Ð°Ð½Ð´Ð¾Ð¹ \printbibliography. \thecitenum ÑÑŽÐ´Ð° Ð¿Ð¸ÑÐ°Ñ‚ÑŒ Ð½Ðµ Ð½Ð°Ð´Ð¾
   {\stepcounter{citenum}} %What is printing / executed at each entry.
 \makeatother
 \defbibheading{counter}{}
@@ -284,7 +284,7 @@ sorting=none,% настройка сортировки списка литера
 {\setcounter{citeauthorvak}{0}%
     \renewcommand{\blx@driver}[1]{}%
 } %what is doing at the beginining of bibliography. In your case it's : a. Reset counter b. Say to print nothing when a entry is tested.
-{} %Здесь то, что будет выводиться командой \printbibliography. Обойдёмся без \theciteauthorvak в нашей реализации
+{} %Ð—Ð´ÐµÑÑŒ Ñ‚Ð¾, Ñ‡Ñ‚Ð¾ Ð±ÑƒÐ´ÐµÑ‚ Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒÑÑ ÐºÐ¾Ð¼Ð°Ð½Ð´Ð¾Ð¹ \printbibliography. ÐžÐ±Ð¾Ð¹Ð´Ñ‘Ð¼ÑÑ Ð±ÐµÐ· \theciteauthorvak Ð² Ð½Ð°ÑˆÐµÐ¹ Ñ€ÐµÐ°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ð¸
 {\stepcounter{citeauthorvak}} %What is printing / executed at each entry.
 \makeatother
 \defbibheading{countauthorvak}{}
@@ -295,7 +295,7 @@ sorting=none,% настройка сортировки списка литера
 {\setcounter{citeauthornotvak}{0}%
     \renewcommand{\blx@driver}[1]{}%
 } %what is doing at the beginining of bibliography. In your case it's : a. Reset counter b. Say to print nothing when a entry is tested.
-{} %Здесь то, что будет выводиться командой \printbibliography. Обойдёмся без \theciteauthornotvak в нашей реализации
+{} %Ð—Ð´ÐµÑÑŒ Ñ‚Ð¾, Ñ‡Ñ‚Ð¾ Ð±ÑƒÐ´ÐµÑ‚ Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒÑÑ ÐºÐ¾Ð¼Ð°Ð½Ð´Ð¾Ð¹ \printbibliography. ÐžÐ±Ð¾Ð¹Ð´Ñ‘Ð¼ÑÑ Ð±ÐµÐ· \theciteauthornotvak Ð² Ð½Ð°ÑˆÐµÐ¹ Ñ€ÐµÐ°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ð¸
 {\stepcounter{citeauthornotvak}} %What is printing / executed at each entry.
 \makeatother
 \defbibheading{countauthornotvak}{}
@@ -306,7 +306,7 @@ sorting=none,% настройка сортировки списка литера
 {\setcounter{citeauthorconf}{0}%
     \renewcommand{\blx@driver}[1]{}%
 } %what is doing at the beginining of bibliography. In your case it's : a. Reset counter b. Say to print nothing when a entry is tested.
-{} %Здесь то, что будет выводиться командой \printbibliography. Обойдёмся без \theciteauthorconf в нашей реализации
+{} %Ð—Ð´ÐµÑÑŒ Ñ‚Ð¾, Ñ‡Ñ‚Ð¾ Ð±ÑƒÐ´ÐµÑ‚ Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒÑÑ ÐºÐ¾Ð¼Ð°Ð½Ð´Ð¾Ð¹ \printbibliography. ÐžÐ±Ð¾Ð¹Ð´Ñ‘Ð¼ÑÑ Ð±ÐµÐ· \theciteauthorconf Ð² Ð½Ð°ÑˆÐµÐ¹ Ñ€ÐµÐ°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ð¸
 {\stepcounter{citeauthorconf}} %What is printing / executed at each entry.
 \makeatother
 \defbibheading{countauthorconf}{}
@@ -317,7 +317,7 @@ sorting=none,% настройка сортировки списка литера
 {\setcounter{citeauthor}{0}%
     \renewcommand{\blx@driver}[1]{}%
 } %what is doing at the beginining of bibliography. In your case it's : a. Reset counter b. Say to print nothing when a entry is tested.
-{} %Здесь то, что будет выводиться командой \printbibliography. Обойдёмся без \theciteauthor в нашей реализации
+{} %Ð—Ð´ÐµÑÑŒ Ñ‚Ð¾, Ñ‡Ñ‚Ð¾ Ð±ÑƒÐ´ÐµÑ‚ Ð²Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒÑÑ ÐºÐ¾Ð¼Ð°Ð½Ð´Ð¾Ð¹ \printbibliography. ÐžÐ±Ð¾Ð¹Ð´Ñ‘Ð¼ÑÑ Ð±ÐµÐ· \theciteauthor Ð² Ð½Ð°ÑˆÐµÐ¹ Ñ€ÐµÐ°Ð»Ð¸Ð·Ð°Ñ†Ð¸Ð¸
 {\stepcounter{citeauthor}} %What is printing / executed at each entry.
 \makeatother
 \defbibheading{countauthor}{}
@@ -327,7 +327,7 @@ sorting=none,% настройка сортировки списка литера
 \defbibheading{otherpublications}{\section*{#1}}
 
 
-%%% Создание команд для вывода списка литературы %%%
+%%% Ð¡Ð¾Ð·Ð´Ð°Ð½Ð¸Ðµ ÐºÐ¾Ð¼Ð°Ð½Ð´ Ð´Ð»Ñ Ð²Ñ‹Ð²Ð¾Ð´Ð° ÑÐ¿Ð¸ÑÐºÐ° Ð»Ð¸Ñ‚ÐµÑ€Ð°Ñ‚ÑƒÑ€Ñ‹ %%%
 \newcommand*{\insertbibliofull}{
 \printbibliography[keyword=bibliofull,section=0]
 \printbibliography[heading=counter,env=counter,keyword=bibliofull,section=0]
@@ -340,9 +340,9 @@ sorting=none,% настройка сортировки списка литера
 \printbibliography[heading=authorpublications,keyword=biblioauthor,section=1,title=\authorbibtitle]
 }
 \newcommand*{\insertbiblioauthorimportant}{
-\printbibliography[heading=authorpublications,keyword=biblioauthor,section=2,title={Наиболее значимые \MakeLowercase{\protect\authorbibtitle{}}}]
+\printbibliography[heading=authorpublications,keyword=biblioauthor,section=2,title={ÐÐ°Ð¸Ð±Ð¾Ð»ÐµÐµ Ð·Ð½Ð°Ñ‡Ð¸Ð¼Ñ‹Ðµ \MakeLowercase{\protect\authorbibtitle{}}}]
 }
-\newcommand*{\insertbiblioauthorgrouped}{% Заготовка для вывода сгруппированных печатных работ автора. Порядок нумерации определяется в соответствующих счетчиках внутри окружения refsection в файле common/characteristic.tex
+\newcommand*{\insertbiblioauthorgrouped}{% Ð—Ð°Ð³Ð¾Ñ‚Ð¾Ð²ÐºÐ° Ð´Ð»Ñ Ð²Ñ‹Ð²Ð¾Ð´Ð° ÑÐ³Ñ€ÑƒÐ¿Ð¿Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð½Ñ‹Ñ… Ð¿ÐµÑ‡Ð°Ñ‚Ð½Ñ‹Ñ… Ñ€Ð°Ð±Ð¾Ñ‚ Ð°Ð²Ñ‚Ð¾Ñ€Ð°. ÐŸÐ¾Ñ€ÑÐ´Ð¾Ðº Ð½ÑƒÐ¼ÐµÑ€Ð°Ñ†Ð¸Ð¸ Ð¾Ð¿Ñ€ÐµÐ´ÐµÐ»ÑÐµÑ‚ÑÑ Ð² ÑÐ¾Ð¾Ñ‚Ð²ÐµÑ‚ÑÑ‚Ð²ÑƒÑŽÑ‰Ð¸Ñ… ÑÑ‡ÐµÑ‚Ñ‡Ð¸ÐºÐ°Ñ… Ð²Ð½ÑƒÑ‚Ñ€Ð¸ Ð¾ÐºÑ€ÑƒÐ¶ÐµÐ½Ð¸Ñ refsection Ð² Ñ„Ð°Ð¹Ð»Ðµ common/characteristic.tex
 \section*{\authorbibtitle}
 \printbibliography[heading=pubsubgroup, keyword=biblioauthorvak, section=1,title=\vakbibtitle]%
 \printbibliography[heading=pubsubgroup, keyword=biblioauthorconf, section=1,title=\confbibtitle]%

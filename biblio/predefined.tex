@@ -11,7 +11,7 @@
 \renewcommand{\@biblabel}[1]{#1.}   % Заменяем библиографию с квадратных скобок на точку
 \makeatother
 %% Управление отступами между записями
-%% требует etoolbox 
+%% требует etoolbox
 %% http://tex.stackexchange.com/a/105642
 %\patchcmd\thebibliography
 % {\labelsep}
@@ -38,11 +38,11 @@
 
 %%% Создание команд для вывода списка литературы %%%
 \newcommand*{\insertbibliofull}{
-\bibliography{biblio/othercites,biblio/authorpapersVAK,biblio/authorpapers,biblio/authorconferences}         % Подключаем BibTeX-базы % После запятых не должно быть лишних пробелов — он "думает", что это тоже имя пути
+\bibliography{biblio/othercites,biblio/authorpapersvak,biblio/authorpapers,biblio/authorconferences}         % Подключаем BibTeX-базы % После запятых не должно быть лишних пробелов — он "думает", что это тоже имя пути
 }
 
 \newcommand*{\insertbiblioauthor}{
-\bibliography{biblio/authorpapersVAK,biblio/authorpapers,biblio/authorconferences}         % Подключаем BibTeX-базы % После запятых не должно быть лишних пробелов — он "думает", что это тоже имя пути
+\bibliography{biblio/authorpapersvak,biblio/authorpapers,biblio/authorconferences}         % Подключаем BibTeX-базы % После запятых не должно быть лишних пробелов — он "думает", что это тоже имя пути
 }
 
 \newcommand*{\insertbiblioother}{

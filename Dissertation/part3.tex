@@ -274,3 +274,114 @@ $TGG$ & 700 & 1 & 0.5-1 & нет \\
   \caption{Фрагмент поверхности резонатора с прямоугольными выступами размером 5 на 15, 20, 25 мкм для контроля ДГС резонатора. Показано качество поверхности до полировки, видны сколы по 5 мкм на выступе из-за износа острого резца.}
   \label{protrsuion_rect}
 \end{figure}
+
+\section{Экспериментальное наблюдение оптических частотных гребенок и солитонов в резонаторах из $MgF_2$}
+
+
+\subsection{Экспериментальное установка и результаты генерации солитонов}
+
+Схема
+
+Описание моделей оборудования
+
+Примеры шумных гребенок (самая широкая и 12 ГГц)ю
+
+Солитон 8 ГГц, 26 ГГц, 12 ГГц, состояния с большим количеством мод кроссингов, но узким битноутом
+
+\subsection{Методы контроля и стабилизации частоты и отстройки лазера накачки}
+метод VNA, обзор работы Карпова, возможно картинка RIGOL
+
+более удобный метод PDH, мину - нет возможности менять отстройку
+
+\subsection{Метод стабилизации частоты повторения солитонов с помощью амплитудной модуляции лазера накачки}
+амплитудная модуляция на кратных фср частотах приводит к узкой области захватывания частоты повторения солитонов
+
+\subsection{Метод достижения односолитонного режима с помощью модуляции лазера накачки}
+
+Перевод от хаоса к порядку экспериментальной части.
+
+\section{Экспериментальное наблюдение двойных оптических частотных гребенок в резонаторах из $MgF_2$}
+
+\subsection{Генерация двух солитонных оптических гребенок в двух резонаторах на одном цилиндре}
+
+In this Letter, we present a compact optical dual-comb source based on ultra-high Q-factor crystalline MgF$_2$ optical whispering gallery mode (WGM) microresonators pumped by continuous wave lasers which may be used for compact spectroscopy or LIDAR applications. Although crystalline microresonators were the first microresonator platform in which dissipative solitons were generated, which have been applied already to low noise microwave generation[Matkso] and for creating an RF to optical link [Optica], achieving dual comb spectroscopy is challenging due to the requirements on the repetition rates. Here it is shown that resonators with almost identical FSR can be fabricated on the same crystalline preform. This enables the FSR of the microresonators $\sim 12.1$~GHz with a difference of only $1.62$ MHz. The demonstrated dual comb source allows the downconversion of an optical soliton frequency combs spanning $30$~nm ($3.7$~THz) near $1554$~nm to a narrow span of $300$~MHz in the RF domain.
+
+\section{Cavity design and fabrication}
+For a simultaneous generation of several soliton frequency combs with almost identical repetition rate, we developed a structure consisting of several identically shaped magnesium fluoride microresonators cut on the same crystalline rod as shown in [Fig.\ref{ris:image1}]. The structure had $5$ equal protrusions with a curvature radius of $35$~µm and a diameter of $5.68$~mm corresponding to a FSR $\sim 12.1$~GHz. The distance between adjacent protrusions was $140$~µm. This stack of microresonators was manufactured by single-point diamond turning (SPDT) technique \cite{Tanabe:16}, using an ultra-precise computer-controlled lens lathe (DAC ALM).
+
+\begin{figure}[ht]
+\begin{minipage}[ht]{1\linewidth}
+\center{\includegraphics[width=0.9\linewidth]{img/fig1}}
+% * <erwan.lucas@epfl.ch> 2016-11-17T11:44:23.151Z:
+%
+% This figure needs a bigger text ! This is way too small
+%
+% ^.
+\end{minipage}
+\caption{ (a): View of the WGM cavities on a single crystalline rod with a major diameter of $5.68$~mm, minor diameter of $35$~µm, and distance between adjacent protrusions of $140$~µm. The inset shows $3$ unpolished cavities (\#2 -- \#4) after single point diamond turning where solitons were observed. (b-d): optical single soliton spectra generated from $3$ different cavities (\#2 -- \#4). The soliton Kerr frequency combs spans $30 - 65$~nm with a line spacing of $12.1$~GHz;}
+\label{ris:image1}
+\end{figure}
+
+The quality factor after diamond cutting was approximately 10$^6$. The ultra-high intrinsic Q-factor exceeding $10^9$ was achieved by asymptotic polishing with diamond slurries \cite{Maleki:01}. To preserve the initial accuracy of the manufacturing, lint-free wipes with polishing diamond slurries were controllably applied with the same pressure to three chosen adjacent protrusions simultaneously (numbers $2 - 4$ in [Fig.\ref{ris:image1}(a)]). As a result of fine polishing, the difference between the FSR of several protrusions was below $10$~MHz indicating a difference of radii at the level of $0.5 - 1$~µm assuming excitation of similar mode types, sufficient for dual comb spectroscopy applications.
+The loaded Q-factors of the three specially polished microresonators were ~10$^9$ after the smallest grain size polishing. The Q-factors of the other protrusions less affected by polishing procedure were $10^8$ and below.
+
+\section{Experimental results}
+
+\begin{figure}[ht]
+\begin{minipage}[ht]{1\linewidth}
+\center{\includegraphics[width=1\linewidth]{img/Setup}}
+\end{minipage}
+\caption{Experimental setup to generate the soliton dual comb RF beating from the protrusions \#2 and \#4. CW: continuous-wave narrow linewidth tunable fiber laser; EDFA: erbium-doped fiber amplifier; AFG: arbitrary function generator; FPC:  fiber polarization controller; FBG: fiber Bragg grating; PD: photodetector; ESA: electrical spectrum analyzer; OSA: optical spectrum analyzer; OSC: oscilloscope.}
+\label{ris:image2}
+\end{figure}
+
+A schematic view of the experimental setup is shown in Fig.\ref{ris:image2}. Two continuous-wave tunable narrow linewidth fiber lasers ($\lambda \sim 1554$~nm) were amplified with erbium-doped fiber amplifiers and coupled into the WGM resonators via two tapered optical fibers \emph{[TJK cite PRA J. Hofer which first demonstrated this for crystals]}. Each tapered fiber approached a distinct resonating protrusion (\#2 and \#4) from opposite sides and excited solitons with different FSRs. An arbitrary function generator was used to control the soliton generation in both microresonators via frequency detuning of the lasers \cite{Kippenberg:14}. Fiber polarization controllers were added to optimize the coupling efficiency. A fiber Bragg grating  was employed to suppress the transmitted pump power in the out-coupled optical signals. The repetition rates of the soliton pulses were monitored with a fast photodiode (25 GHz bandwidth) and an electrical spectrum analyzer. An optical spectrum analyzer recorded the optical comb spectra from both microresonators. The piezo-voltage of the frequency swept lasers and the transmitted optical power for both protrusions, showing the characteristic step pattern, indicating the soliton formation, were monitored with an oscilloscope.
+
+\begin{figure}[ht]
+\begin{minipage}[ht]{1\linewidth}
+	\center{\includegraphics[width=0.8\linewidth]{img/fig3}}
+\end{minipage}
+\caption{(a-b): Optical multisoliton spectra generated separately from cavities $\#2$ and $\#4$; (c): FSR beatnote spectrum of two simultaneous multisoliton states in two different cavities used for dual comb generation, FSR difference is $1.62$ MHz.}
+\label{ris:image3}
+\end{figure}
+
+In our 5-cavity structure, Kerr soliton frequency combs were observed in three different neighboring microresonators [Fig.\ref{ris:image1}]. The width of the optical soliton spectra shown in [Fig.\ref{ris:image1}(b) -- Fig.\ref{ris:image1}(d)] covered 30 to 65~nm around $1554$~nm. The difference between laser pump wavelengths used to excite different resonators was $8.9-30$~pm. Two soliton trains having different repetition rates $\Delta \mbox{FSR} = \mbox{FSR}_1 - \mbox{FSR}_2 = 1.62$~MHz were simultaneously generated from two different protrusions of the crystalline rod (\#2 and \#4 in [Fig.\ref{ris:image1} (a)]) and then combined using a fiber splitter.
+
+To generate the dual soliton comb, we used the laser tuning method first proposed in \cite{Kippenberg:14}. We applied the ramp voltage to both lasers and tuned into the soliton state simultaneously in both cavities. The ramp starting frequency of the lasers were adjusted by aligning the characteristic soliton steps in the transmission signals from both cavities.
+
+Optical spectra of multisoliton combs in both resonators are presented in [Fig.~\ref{ris:image3}(a) -- Fig.~\ref{ris:image3}(b)], the narrowest comb in [Fig.~\ref{ris:image3}(b)] contains $350$ lines separated by $12.1$~GHz and spans $35$~nm around the center wavelength $\lambda = 1554$~nm. The FSR beat note spectrum of multisoliton state combs in both resonators is shown in [Fig.\ref{ris:image3}(c)], FSR difference between two resonators is $1.62$~MHz and the pump lasers frequency difference is $1.07$~GHz. The dual comb downconversion from the optical domain to the RF domain [Fig.\ref{ris:image4}] results in a $300$~MHz wide RF comb, centered at $1.07$~GHz, consisting of $160$ lines spaced by $1.62$~MHz, and having a spectral envelope resulting from the optical spectrum of the two multisoliton combs. The obtained multisoliton dual comb state was short-lived ($\sim 30$ seconds), although, independently, soliton states in each cavity existed for minutes without any additional stabilization techniques.
+
+\begin{figure}[ht]
+\begin{minipage}[ht]{1\linewidth}
+\center{\includegraphics[width=0.8\linewidth]{img/fig4}}
+% THE DBM AND FREQ. UNIT SHOULD BE IN PARENTHESIS
+\end{minipage}
+\caption{Radio-frequency spectrum resulting from heterodyning two multi-soliton Kerr frequency optical combs. The RF dual comb covers $300$~MHz around $1.07$~ GHz with ~$160$ lines separated by $1.62$~MHz.}
+\label{ris:image4}
+\end{figure}
+
+The short lifetime of the dual comb state is due to the thermal resonance frequency shift, which makes the presented method challenging. The soliton excitation in one cavity was observed to lead to a thermally-induced resonance frequency shift in the other cavity, thus moving its effective detuning out of the soliton existence range. As a result, we consistently obtained a soliton comb in one cavity and a high noise or MI comb state in the other cavity.
+
+Thermal frequency shifts in all 5 cavities were simulated using finite element method with Comsol Multiphysics software. The simulated cavity geometry coincides with the actual fabricated device: cylindrical MgF$_2$ rod is placed on a brass pedestal and cavities $\#2$ and $\#4$ are heated due to the circulating optical power. The characteristic power of 50 mW is assumed to be dissipated as heat. The material parameters were taken from the supplier site (Crystran). We simulated the temperature variation and thermal expansion in the system assuming the heat sources were turned on simultaneously. Then the frequency shifts were obtained using the simple relation
+\begin{align}
+\frac{\Delta f}{f}=-\beta\frac{\Delta T}{n}-\frac{u_r}{R},
+\end{align}
+where $n$ is refraction index, $\Delta T$ is temperature change, $\beta$ is thermal refraction coefficient, $u_r$ is radial displacement of the boundary caused by thermal expansion and $R$ is unperturbed radius. [Fig.\ref{ris:image5}] shows the resulting resonance frequency shifts in different cavities, the inset shows the result for thermal expansion in stationary regime. The mechanical part was found to give out more effect than the refractive one. The simulations demonstrated that pumping one of the resonators significantly shifts the resonance frequencies of all other resonators reaching a steady state in a $1$-s timescale. In our experiment, the typical thermal frequency shifts were between $30-50$~MHz, which is in good agreement with the numerical simulation results (the resonance shift between cavities 2 and 4 is~$50$ MHz at $1$~s). However, the simulations  indicate that the thermal influence can be significantly reduced, by fabricating cavity protrusions separated by approximately $2$~mm or by adding a heat sink at both the top and bottom of the crystalline cylinder. The shift was also shown to depend linearly on intracavity power. In this way, we anticipate that the issues posed by the thermo-optic effects may be mitigated by appropriate design and active thermal stabilization, such as via recently developed techniques that stabilize the soliton duration [cite Nat. Phys. and Vahala OL].
+
+\begin{figure}[h]
+\begin{minipage}[ht]{1\linewidth}
+\center{\includegraphics[width=1\linewidth]{img/fig5}}
+% THE SIMULATION INSET SHOULD HAVE BIGGER FONT AND PROPER UNITS (MM) AND THE COLOR SCALE UNITS INDICATED
+\end{minipage}
+\caption{Numerical modeling of the resonance frequency shift induced by thermorefraction and thermal expansion of the 5-cavity system. Inset -- displacement caused by heating (increased 50000 times for visualization) in stationary regime.}
+\label{ris:image5}
+\end{figure}
+
+
+\section{Conclusion}
+In this Letter we present a precise fabrication technique of crystalline whispering gallery microresonators that allowed us to achieve FSR difference down to $\sim 1.6$~MHz. We fabricated a novel structure with several identical microresonators on a single MgF$_2$ crystalline rod with a diameter difference of only $\sim 500$~nm and demonstrated a soliton dual comb source from such structure, enabling the down conversion of $3.7$~THz of optical span centered at $\lambda \sim 1554$~nm to a $300$~MHz RF comb centered at $1.07$~GHz. Full thermomechanical modelling of the system was performed and mitigation methods for thermal effects influence were discussed. Such compact dual comb sources open promising applications perspectives in spectroscopy and laser ranging.
+
+
+
+
+\section{Экспериментальное наблюдение вынужденного рассеяний Рамана и Бриллюэна в резонаторах из $MgF_2$}

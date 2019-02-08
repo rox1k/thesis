@@ -64,6 +64,7 @@
   \item XV Всероссийская школа-семинар "Физика и применение микроволн" имени профессора А.П. Сухорукова ( "Волны-2015"), Красновидово, Россия 2015
   \item Third International Conference on Quantum Technologies (ICQT 2015), Москва, Россия 2015
   \item SPIE Photonics West, Сан-Франциско, США 2016
+  \item 2016 International Conference Laser Optics (ICLO)  Санкт-Петербург, Россия 2016
   \item SPIE Photonics West, Сан-Франциско, США 2017
   \item Progress In Electromagnetics Research Symposium (PIERS 2017 in St Petersburg), Санкт-Петербург, Россия 2017
   \item XVI Всероссийская школа-семинар "Физика и применение микроволн" имени профессора А.П. Сухорукова ( "Волны-2017"), Красновидово, Россия 2017
@@ -84,7 +85,7 @@
 %Х из которых изданы в журналах, рекомендованных ВАК~\cite{Sokolov,Gaidaenko},
 %ХХ --- в тезисах докладов~\cite{Lermontov,Management}.
 
-\ifnumequal{\value{bibliosel}}{1}{% Встроенная реализация с загрузкой файла через движок bibtex8
+\ifnumequal{\value{bibliosel}}{0}{% Встроенная реализация с загрузкой файла через движок bibtex8
     \publications\ Основные результаты по теме диссертации изложены в 20 печатных изданиях,
     11 из которых изданы в журналах, рекомендованных ВАК,
     9 "--- в тезисах докладов.%
@@ -97,24 +98,32 @@
         \printbibliography[heading=countauthornotvak, env=countauthornotvak, keyword=biblioauthornotvak, section=1]%
         \printbibliography[heading=countauthor, env=countauthor, keyword=biblioauthor, section=1]%
         \nocite{%Порядок перечисления в этом блоке определяет порядок вывода в списке публикаций автора
-                vakbib1,vakbib2,%
-                confbib1,confbib2,%
-                bib1,bib2,%
-        }%
+                HerrPRL2014,
+                Brasch2016,
+                Lobanov2015,
+                Lobanov2015epl,
+                Lobanov2016,
+                Pavlov2017,
+                Karpov2017,
+                Anderson:18,
+                Lucas2018,
+                Pavlov2018,
+                PhysRevLett.122.013902
+            }%
         \publications\ Основные результаты по теме диссертации изложены в~\arabic{citeauthor}~печатных изданиях,
         \arabic{citeauthorvak} из которых изданы в журналах, рекомендованных ВАК,
         \arabic{
         authorconf} "--- в~тезисах докладов.
     \end{refsection}
-    \begin{refsection}[vak,papers,conf]%Блок, позволяющий отобрать из всех работ автора наиболее значимые, и только их вывести в автореферате, но считать в блоке выше общее число работ
-        \printbibliography[heading=countauthorvak, env=countauthorvak, keyword=biblioauthorvak, section=2]%
-        \printbibliography[heading=countauthornotvak, env=countauthornotvak, keyword=biblioauthornotvak, section=2]%
-        \printbibliography[heading=countauthorconf, env=countauthorconf, keyword=biblioauthorconf, section=2]%
-        \printbibliography[heading=countauthor, env=countauthor, keyword=biblioauthor, section=2]%
-        \nocite{vakbib2}%vak
-        \nocite{bib1}%notvak
-        \nocite{confbib1}%conf
-    \end{refsection}
+    %\begin{refsection}[vak,papers,conf]%Блок, позволяющий отобрать из всех работ автора наиболее значимые, и только их вывести в автореферате, но считать в блоке выше общее число работ
+%        \printbibliography[heading=countauthorvak, env=countauthorvak, keyword=biblioauthorvak, section=2]%
+%        \printbibliography[heading=countauthornotvak, env=countauthornotvak, keyword=biblioauthornotvak, section=2]%
+%        \printbibliography[heading=countauthorconf, env=countauthorconf, keyword=biblioauthorconf, section=2]%
+%        \printbibliography[heading=countauthor, env=countauthor, keyword=biblioauthor, section=2]%
+%        \nocite{vakbib2}%vak
+%        \nocite{bib1}%notvak
+%        \nocite{confbib1}%conf
+%    \end{refsection}
 }
 %При использовании пакета \verb!biblatex! для автоматического подсчёта
 %количества публикаций автора по теме диссертации, необходимо

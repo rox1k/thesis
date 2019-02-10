@@ -659,8 +659,8 @@ $
 \subsection{Моделирование уравнения Луджиато-Лефевера методом конечных разностей}
 
 Моделирование уравнения LLE \eqref{LLE} c начальным профилем
-\begin{equation}
-\psi(0,\theta)=\sqrt{2\zeta_0}\exp (i \arccos(\frac{\sqrt{8\zeta_0}}{\pi f}))\sum_j sech(\sqrt{2\zeta_0}(\theta-\theta_j))
+\begin{equation} \label{initial_cond_soliton}
+\psi(0,\theta)=\sqrt{2\zeta_0}\exp (i \arccos(\frac{\sqrt{8\zeta_0}}{\pi f}))\sum_j sech(\sqrt{\frac{\zeta_0}{d_2}}(\theta-\theta_j))
 \end{equation}
 было проведено в пакете Mathematica. Использовалась функция NDSolve, которая реализует конечно-разностный метод. Для одного солитона методом проб и ошибок были найдены границы изменений параметров $\zeta_0,f$, при которых солитон распространяется без изменения профиля.
 %(представлены на рис. \ref{nls}).

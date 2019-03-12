@@ -35,7 +35,8 @@
 \newpage
 % оборотная сторона обложки
 \thispagestyle{empty}
-\noindent Работа выполнена в {\thesisInOrganization}.
+%\noindent Работа выполнена в {\thesisInOrganization}.
+\noindent Работа выполнена на Физическом факультете Московского государственного университета имени М.В.Ломоносова.
 
 \vspace{0.008\paperheight plus1fill}
 \noindent%
@@ -47,29 +48,31 @@
     \ifnumequal{\value{showopplead}}{0}{\vspace{13\onelineskip plus1fill}}{%
         \textbf{\opponentOneFio,}\par
         \opponentOneRegalia,\par
-        \opponentOneJobPlace,\par
-        \opponentOneJobPost\par
+        \opponentOneJobPlace, \opponentOneJobPost\par
             \vspace{0.01\paperheight}
         \textbf{\opponentTwoFio,}\par
         \opponentTwoRegalia,\par
-        \opponentTwoJobPlace,\par
-        \opponentTwoJobPost
+        \opponentTwoJobPlace, \opponentTwoJobPost\par
+            \vspace{0.01\paperheight}
+        \textbf{\opponentTriFio,}\par
+        \opponentTriRegalia,\par
+        \opponentTriJobPlace, \opponentTriJobPost
     }%
     \vspace{0.013\paperheight} \\
-    Ведущая организация:    &
-    \ifnumequal{\value{showopplead}}{0}{\vspace{6\onelineskip plus1fill}}{%
-        \leadingOrganizationTitle
-    }%
+    %Ведущая организация:    &
+    %\ifnumequal{\value{showopplead}}{0}{\vspace{6\onelineskip plus1fill}}{%
+    %    \leadingOrganizationTitle
+    %}%
 \end{tabularx}
 \vspace{0.008\paperheight plus1fill}
 
-\noindent Защита состоится \defenseDate~на~заседании диссертационного совета \defenseCouncilNumber~при \defenseCouncilTitle~по адресу: \defenseCouncilAddress.
+\noindent Защита состоится \defenseDate~на~заседании диссертационного совета \defenseCouncilNumber~Московского государственного университета имени М.В.Ломоносова по адресу: 119991, Москва, Ленинские горы, д.1, стр.2, Физический факультет.
 
 \vspace{0.008\paperheight plus1fill}
-\noindent С диссертацией можно ознакомиться в библиотеке \synopsisLibrary.
+\noindent С диссертацией можно ознакомиться в отделе диссертаций научной библиотеки МГУ имени М.В. Ломоносова (Ломоносовский просп., д.27) и на сайте ИАС «ИСТИНА». Отзывы на автореферат в двух экземплярах, заверенные печатью учреждения, просьба направлять по адресу: \defenseCouncilAddress, ученому секретарю диссертационного совета~\defenseCouncilNumber.
 
-\vspace{0.008\paperheight plus1fill}
-\noindent Отзывы на автореферат в двух экземплярах, заверенные печатью учреждения, просьба направлять по адресу: \defenseCouncilAddress, ученому секретарю диссертационного совета~\defenseCouncilNumber.
+%\vspace{0.008\paperheight plus1fill}
+%\noindent Отзывы на автореферат в двух экземплярах, заверенные печатью учреждения, просьба направлять по адресу: \defenseCouncilAddress, ученому секретарю диссертационного совета~\defenseCouncilNumber.
 
 \vspace{0.008\paperheight plus1fill}
 \noindent{Автореферат разослан \synopsisDate.}
